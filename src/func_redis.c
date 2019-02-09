@@ -27,10 +27,14 @@
 	<depend>hiredis</depend>
  ***/
 
+#ifndef AST_MODULE
+#define AST_MODULE "func_redis"
+#define AST_MODULE_SELF_SYM __internal_func_redis_self
+#endif
 
 #include <asterisk.h>
 
-ASTERISK_FILE_VERSION("func_redis.c", "$Revision: 6 $")
+//ASTERISK_FILE_VERSION("func_redis.c", "$Revision: 6 $")
 
 #include <asterisk/module.h>
 #include <asterisk/channel.h>
@@ -39,10 +43,6 @@ ASTERISK_FILE_VERSION("func_redis.c", "$Revision: 6 $")
 #include <asterisk/app.h>
 #include <asterisk/cli.h>
 #include <asterisk/config.h>
-
-#ifndef AST_MODULE
-#define AST_MODULE "func_redis"
-#endif
 
 #include <hiredis/hiredis.h>
 #include <errno.h>
